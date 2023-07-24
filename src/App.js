@@ -1,13 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Increment from "./Component/Increment";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Bro</p>
-        <p>Learn Nothing</p>
+        <Increment />
+        <Increment />
       </header>
     </div>
   );
