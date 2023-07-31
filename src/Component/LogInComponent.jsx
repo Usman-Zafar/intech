@@ -2,57 +2,25 @@ import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextField, Button } from "@mui/material";
-const SignupSchema = Yup.object().shape({
-  firstName: Yup.string().required("Required"),
-  lastName: Yup.string().required("Required"),
+const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string().min(8, "Too Short!").required("Required"),
+  password: Yup.string().required("Required"),
 });
-export const ValidationSchemaExample = () => (
+export const LogInValidation = () => (
   <div style={{ padding: "50px" }}>
-    <h1>Signup</h1>
+    <h1>Login</h1>
     <Formik
       initialValues={{
-        firstName: "",
-        lastName: "",
         email: "",
         password: "",
       }}
-      validationSchema={SignupSchema}
+      validationSchema={LoginSchema}
       onSubmit={(values) => {
         console.log(values);
       }}
     >
       {({ errors, touched, setFieldValue }) => (
         <Form>
-          <TextField
-            name="firstName"
-            label="First Name"
-            variant="outlined"
-            error={Boolean(errors.firstName && touched.firstName)}
-            helperText={
-              errors.firstName && touched.firstName && String(errors.firstName)
-            }
-            onChange={(event) => {
-              setFieldValue("firstName", event.target.value);
-            }}
-          />
-          <br />
-          <br />
-          <TextField
-            name="lastName"
-            label="Last Name"
-            variant="outlined"
-            error={Boolean(errors.lastName && touched.lastName)}
-            helperText={
-              errors.lastName && touched.lastName && String(errors.lastName)
-            }
-            onChange={(event) => {
-              setFieldValue("lastName", event.target.value);
-            }}
-          />
-          <br />
-          <br />
           <TextField
             id="email"
             name="email"
@@ -67,6 +35,7 @@ export const ValidationSchemaExample = () => (
           <br />
           <br />
           <TextField
+            id="password"
             name="password"
             label="Password"
             variant="outlined"
