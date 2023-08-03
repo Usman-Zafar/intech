@@ -1,23 +1,17 @@
 import React from "react";
-
-import { Navigate, Route, Routes } from "react-router-dom";
+import { ValidationSchemaExample } from "../Component/SignUpComponenet";
+import { LogInValidation } from "../Component/LogInComponent";
+import { Route, Routes } from "react-router-dom";
 
 import { ROUTES } from "../utils/routes";
 
 const AuthRoutes = () => (
   <Routes>
     <Route
-      path={ROUTES.AUTH_ROUTES.signup}
-      element={<Navigate to={ROUTES.AUTH_ROUTES.signup}></Navigate>}
+      path={ROUTES.AUTH_ROUTES.signin}
+      element={<ValidationSchemaExample />}
     />
-    <Route
-      path={ROUTES.PROTECTED_ROUTES_NAMES.root}
-      element={<Navigate to={ROUTES.AUTH_ROUTES.login} replace />}
-    />
-    <Route
-      path="*"
-      element={<Navigate to={ROUTES.AUTH_ROUTES.login} replace />}
-    />
+    <Route path={ROUTES.AUTH_ROUTES.signup} element={<LogInValidation />} />
   </Routes>
 );
 
